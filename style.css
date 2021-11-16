@@ -1,0 +1,209 @@
+@font-face 
+{ 
+    font-family: "Comfortaa";
+    src: url("Comfortaa/Comfortaa-VariableFont_wght.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
+                
+            
+body
+{
+    background-color: #F5F5F5;
+    font-family: 'PT Sans',Helvetica,Arial,sans-serif;
+    color: #555;
+}
+            
+
+    /*/////////// MENU ///////////*/
+
+.menu 
+{
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем отступы*/
+    padding-left: 0; /*убираем отступы*/                
+    background:#FF4444; /*добавляем фон всему меню (заменив этот параметр, вы поменяете цвет всего меню)*/ 
+    height: 50px; /*задаем высоту*/                
+    position: sticky; 
+    top:0;                
+}
+            
+.menu li a 
+{
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+    background:#FF4444; /*добавляем фон к пункту меню (заменив этот параметр, вы поменяете цвет всех пунктов меню)*/
+    color:#fff; /*меняем цвет ссылок*/
+    padding:0px 15px; /*добавляем отступ*/
+    font-family: "Comfortaa";
+    line-height:50px; /*ровняем меню по вертикали*/
+    display: block; 
+    border-right: 1px solid #F36262; /*добавляем бордюр справа*/
+    -moz-transition: all 0.3s 0.01s ease; /*делаем плавный переход*/
+    -o-transition: all 0.3s 0.01s ease;
+    -webkit-transition: all 0.3s 0.01s ease;
+}
+                
+.menu li a:hover 
+{
+    background:#D43737;/*добавляем эффект при наведении*/                
+}
+            
+.menu li 
+{
+    float:left; /*Размещаем список горизонтально для реализации меню*/
+}
+
+.menu .current a
+{
+    background: #FDF5E6;
+    color: #000000;
+}
+
+    /*/////////////////////////////////*/
+
+
+
+.vector
+{
+    text-decoration: overline;
+}
+
+
+h1
+{
+    margin-bottom: 4%;
+}
+
+h1:first-letter 
+{
+    color: red;
+}
+
+p
+{
+    font-size: 18px;
+    text-indent: 20px;
+}
+
+
+
+.main_part
+{
+    background-color: white;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    padding: 1%;                
+}
+
+
+.image_wrappper
+{
+    text-align: center;
+    vertical-align: middle;
+    margin: 3%;
+}
+.image
+{
+    border: 1px solid #6495ED;
+    width: 35%;
+}
+
+
+.definition
+{
+    border: 1px solid #6495ED;
+    text-indent: 0px;
+    padding: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;                
+}
+            
+.definition_word
+{
+    font-weight: 600;
+}
+
+
+
+.container
+{
+    margin-left: 20%;
+}
+            
+.text_near_image
+{
+    display: inline-block;
+    margin-left: 10%;
+    text-indent: 0px;
+    font-size: 20px;
+}
+
+
+
+
+.rainbow_animated {
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: rainbow 20s ease infinite;
+  animation: rainbow 20s ease infinite;
+  font-size: 25px;
+}
+
+.rainbow_animated:hover
+{
+    cursor: pointer;
+}
+ 
+@-webkit-keyframes rainbow {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+ 
+@keyframes rainbow {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+
+
+
+
+
+
+/* ////////////// LIST ////////////// */
+
+#setupParts
+{
+    font-weight: bold; 
+    text-decoration: underline;
+    cursor: pointer;
+}
+#setupParts:hover
+{
+    color: blue;
+}
+
+.list
+{
+    font-style: italic;
+    font-size: 16px;
+    list-style: circle;
+    cursor: pointer;
+    
+}
+
+.list:hover
+{
+    color: blue;
+}
+
+
+/* ////////////////////////////////// */
+
+
