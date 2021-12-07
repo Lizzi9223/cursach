@@ -104,7 +104,7 @@ p.nominalBounds = new cjs.Rectangle(-113.9,-206,229.8,412.1);
 	// Фон
 	this.instance = new lib.setup();
 	this.instance.parent = this;
-	this.instance.setTransform(1,0,1,0.9259);
+	this.instance.setTransform(-7,0,0.6296,0.6582);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -347,49 +347,49 @@ p.nominalBounds = new cjs.Rectangle(-160,-164.6,322.1,329.29999999999995);
 	// Кнопки
 	this.instance = new lib.ЛАТР_1();
 	this.instance.parent = this;
-	this.instance.setTransform(198.05,165.05);
+	this.instance.setTransform(116.95,116.7,0.6296,0.7109,0,0,0,0.1,0.2);
 	new cjs.ButtonHelper(this.instance, 0, 1, 2, false, new lib.ЛАТР_1(), 3);
 
 	this.instance_1 = new lib.Выпрямитель_1();
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(412.85,170.35);
+	this.instance_1.setTransform(252.25,120.4,0.6296,0.7109,0,0,0,0.2,0.1);
 	new cjs.ButtonHelper(this.instance_1, 0, 1, 2, false, new lib.Выпрямитель_1(), 3);
 
 	this.instance_2 = new lib.Выключатель_1();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(407.1,269.75);
+	this.instance_2.setTransform(248.65,191.1,0.6296,0.7109,0,0,0,0.2,0.1);
 	new cjs.ButtonHelper(this.instance_2, 0, 1, 2, false, new lib.Выключатель_1(), 3);
 
 	this.instance_3 = new lib.Соленоид_1();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(582.5,182.6);
+	this.instance_3.setTransform(359,129.1,0.6296,0.7109,0,0,0,0.1,0.1);
 	new cjs.ButtonHelper(this.instance_3, 0, 1, 2, false, new lib.Соленоид_1(), 3);
 
 	this.instance_4 = new lib.ИсточникПитания_1();
 	this.instance_4.parent = this;
-	this.instance_4.setTransform(875.3,220.5);
+	this.instance_4.setTransform(543.35,156.05,0.6296,0.7109,0,0,0,0,0.1);
 	new cjs.ButtonHelper(this.instance_4, 0, 1, 2, false, new lib.ИсточникПитания_1(), 3);
 
 	this.instance_5 = new lib.Реостат_1();
 	this.instance_5.parent = this;
-	this.instance_5.setTransform(1164.95,342.8);
+	this.instance_5.setTransform(725.8,243,0.6296,0.7109,0,0,0,0.2,0);
 	new cjs.ButtonHelper(this.instance_5, 0, 1, 2, false, new lib.Реостат_1(), 3);
 
 	this.voltmetr = new lib.Вольтметр_1();
 	this.voltmetr.name = "voltmetr";
 	this.voltmetr.parent = this;
-	this.voltmetr.setTransform(968.3,521.5);
+	this.voltmetr.setTransform(602,370.05,0.6296,0.7109,0,0,0,0.2,0.1);
 	new cjs.ButtonHelper(this.voltmetr, 0, 1, 2, false, new lib.Вольтметр_1(), 3);
 
 	this.instance_6 = new lib.Миллиамперметр_1();
 	this.instance_6.parent = this;
-	this.instance_6.setTransform(586.8,456.25);
+	this.instance_6.setTransform(361.7,323.65,0.6296,0.7109,0,0,0,0.1,0.1);
 	new cjs.ButtonHelper(this.instance_6, 0, 1, 2, false, new lib.Миллиамперметр_1(), 3);
 
 	this.ampermetr = new lib.Амперметр();
 	this.ampermetr.name = "ampermetr";
 	this.ampermetr.parent = this;
-	this.ampermetr.setTransform(175.25,503.4);
+	this.ampermetr.setTransform(102.6,357.15,0.6296,0.7109,0,0,0,0.1,0.1);
 	new cjs.ButtonHelper(this.ampermetr, 0, 1, 2, false, new lib.Амперметр(), 3);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.ampermetr},{t:this.instance_6},{t:this.voltmetr},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
@@ -443,7 +443,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-164.6,322.1,329.29999999999995);
 	this.Кнопки = new lib.Монтажный_кадр_1_Кнопки();
 	this.Кнопки.name = "Кнопки";
 	this.Кнопки.parent = this;
-	this.Кнопки.setTransform(647.8,336.1,1,1,0,0,0,647.8,336.1);
+	this.Кнопки.setTransform(400.1,238.1,1,1,0,0,0,400.1,238.1);
 	this.Кнопки.depth = 0;
 	this.Кнопки.isAttachedToCamera = 0
 	this.Кнопки.isAttachedToMask = 0
@@ -457,7 +457,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-164.6,322.1,329.29999999999995);
 	this.Фон = new lib.Монтажный_кадр_1_Фон();
 	this.Фон.name = "Фон";
 	this.Фон.parent = this;
-	this.Фон.setTransform(640.5,356.9,1,1,0,0,0,640.5,356.9);
+	this.Фон.setTransform(395.6,253.7,1,1,0,0,0,395.6,253.7);
 	this.Фон.depth = 0;
 	this.Фон.isAttachedToCamera = 0
 	this.Фон.isAttachedToMask = 0
@@ -468,26 +468,26 @@ p.nominalBounds = new cjs.Rectangle(-160,-164.6,322.1,329.29999999999995);
 	this.timeline.addTween(cjs.Tween.get(this.Фон).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(641,360,639.9000000000001,353.9);
+p.nominalBounds = new cjs.Rectangle(393,250,406,257.5);
 // library properties:
 lib.properties = {
 	id: 'A9E6451E63302B48BD2A25404233EE3A',
-	width: 1280,
-	height: 720,
+	width: 800,
+	height: 500,
 	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Озвученная_карта — копия_HTML5 Canvas_atlas_.png?1633553652995", id:"Озвученная_карта — копия_HTML5 Canvas_atlas_"},
-		{src:"sounds/Амперметрonlineaudioconvertercom.mp3?1633553653080", id:"Амперметрonlineaudioconvertercom"},
-		{src:"sounds/Вольтметр_.mp3?1633553653080", id:"Вольтметр"},
-		{src:"sounds/Выключатель_.mp3?1633553653080", id:"Выключатель"},
-		{src:"sounds/Выпрямитель_.mp3?1633553653080", id:"Выпрямитель"},
-		{src:"sounds/ИсточникПитания_.mp3?1633553653080", id:"ИсточникПитания"},
-		{src:"sounds/ЛАТР_.mp3?1633553653080", id:"ЛАТР"},
-		{src:"sounds/Миллиамперметр_.mp3?1633553653080", id:"Миллиамперметр"},
-		{src:"sounds/Реостат_.mp3?1633553653080", id:"Реостат"},
-		{src:"sounds/Соленоид_.mp3?1633553653080", id:"Соленоид"}
+		{src:"images/Озвученная_карта — копия_HTML5 Canvas_atlas_.png?1638886125648", id:"Озвученная_карта — копия_HTML5 Canvas_atlas_"},
+		{src:"sounds/Амперметрonlineaudioconvertercom.mp3?1638886125712", id:"Амперметрonlineaudioconvertercom"},
+		{src:"sounds/Вольтметр_.mp3?1638886125712", id:"Вольтметр"},
+		{src:"sounds/Выключатель_.mp3?1638886125712", id:"Выключатель"},
+		{src:"sounds/Выпрямитель_.mp3?1638886125712", id:"Выпрямитель"},
+		{src:"sounds/ИсточникПитания_.mp3?1638886125712", id:"ИсточникПитания"},
+		{src:"sounds/ЛАТР_.mp3?1638886125712", id:"ЛАТР"},
+		{src:"sounds/Миллиамперметр_.mp3?1638886125712", id:"Миллиамперметр"},
+		{src:"sounds/Реостат_.mp3?1638886125712", id:"Реостат"},
+		{src:"sounds/Соленоид_.mp3?1638886125712", id:"Соленоид"}
 	],
 	preloads: []
 };
