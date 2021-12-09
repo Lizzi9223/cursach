@@ -798,7 +798,7 @@ function ask(questionInput){
 	newDiv.innerHTML=getAnswer(question);
 	//ОЗВУЧКА - СИНТЕЗ РЕЧИ
 	//флаг, нужна ли озвучка (не нужна, если есть анимация)
-	var needSound=true;
+	var needSound=true;              
 	//проходим по элементам HTML-кода ответа
 	for(var i=0;i<newDiv.childNodes.length;i++){
 		//если находим элемент <embed>
