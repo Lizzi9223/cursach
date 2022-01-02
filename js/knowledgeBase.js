@@ -21,111 +21,28 @@ function prepare_environment(){
 	//крупный план изображений
 	document.body.innerHTML += "<div id='imgalert' style='display:none'>" + "<div class='bg' onclick='hide(\"imgalert\")'>&nbsp;</div>" + "<img id='img_in_alert' src='' />" + "</div>";
 
+    
 	//РАСПОЗНАВАНИЕ РЕЧИ
 	//поле с распознаванием речи. Задаем API-ключ
-
 	window.ya.speechkit.settings.apikey = '5c6d6536-b453-4589-9bc7-f16c7a795106';
-
 	// Добавление элемента управления "Поле для голосового ввода".
-
 	var textline = new ya.speechkit.Textline(
 		'Qdialog', {
 			onInputFinished: function(text) {
 			ask("Qdialog");
 		  }
 		});
-
 	//КОНЕЦ РАСПОЗНАВАНИЯ РЕЧИ
-	//привязка окон активной среды с событиями. Показ модального окна 1 через интервал времени, зависящий от размера страницы
-
-	timer=setInterval(alert_over_time, timeout);
-
-	try {
-		//открытие журналов посещенных адресов и дат посещения:
-		//попытка использования массива адресов открытых страниц из локального хранилища
-		var URLlog=JSON.parse(localStorage.URLlog);
-		//удаление адресов из начала массива, пока в массиве не останется 5 адресов
-		while(URLlog.length>5) URLlog.shift(0);
-		//попытка использоваения массива дат открытия страниц из локального хранилища
-		var log=JSON.parse(localStorage.log);
-		//удаление дат из начала массива, пока в массиве не останется 5 дат
-		while(log.length>5) log.shift(0);
-		//проверка на необходимость срабатывания реакций:
-		//только если сделан переход со страницы на страницу (не обновление страницы)
-		if(location.href!=URLlog[URLlog.length-1]){
-			//если сделан переход на одну из последних пяти посещенных страниц,
-			//очищаем массив и показываем модальное окно 3
-			if(URLlog.indexOf(location.href)!==-1){
-				while(URLlog.length>0) URLlog.shift(0);//очистка массива адресов
-				alert_for_back();
-			}
-			//только если не возникла реакция возврата на предыдущий адрес
-			//проверяем необходимость реакции на быстрые переходы:
-			else{
-				//если сделано 5 переходов меньше чем за минуту -
-				//очищаем массив и показываем модальное окно 2
-				if(log.length>=5 &&  ((new Date())-Date.parse(log[0]))<60000){
-					while(log.length>0) log.shift(0);//очистка массива дат
-					alert_for_speed();
-				}
-			}
-			//в любом случае, независимо от срабатывания реакций, при переходе со страницы на страницу:
-			URLlog.push(location.href);	//запись адреса текущей страницы в массив
-			log.push(new Date());		//запись даты перехода в массив
-		}
-	}
-	catch(e){
-		var URLlog=new Array();	//инициализация массива адресов открытых страниц
-		var log=new Array();	//инициализация массива дат открытия страниц
-	}
-	//запись массива адресов в локальное хранилище в формате JSON
-	localStorage.URLlog=JSON.stringify(URLlog);
-	//запись массива дат в локальное хранилище в формате JSON
-	localStorage.log=JSON.stringify(log);
-
+    
+    
+    
+    
 }
+
 //запуск подготовки среды при загрузке окна
 window.onload = function(){prepare_environment();};
-//скрытие сообщений при щелчке на фон
-function hide(elem_id){
-	$("#" + elem_id).css({"display" : "none"});
-	timer = setInterval(alert_over_time, timeout);
-	if(ignore)
-	{
-		try
-		{
-			var countignore = localStorage.getItem("countignore");
-		}
-		catch(e)
-		{
-			localStorage.setItem("countignore", countignore);
-		}
-		countignore++;
-		localStorage.setItem("countignore", countignore);
-		if(countignore > 2) alert_for_ignore();
-	}
-	else
-	{
-		localStorage.setItem("countignore", 0);
-	}
-	ignore = true;
-}
 
-//показ сообщений
-function alert_over_time(){
-	$("#alert1").css({"display":"block"});
-	clearInterval(timer);
-}
 
-function alert_for_speed(){
-	$("#alert2").css({"display":"block"});
-	clearInterval(timer);
-}
-
-function alert_for_back(){
-	$("#alert3").css({"display":"block"});
-	clearInterval(timer);
-}
 //ДИАЛОГ
 //показ-скрытие диалогового модуля
 function toggleDialog() {
@@ -145,7 +62,9 @@ function toggleDialog() {
 	}
 }
 
-//база знаний
+
+
+//БАЗА ЗНАНИЙ
 var knowledge = [
     
     //текстовые триады
@@ -771,6 +690,18 @@ var knowledge = [
         "выглядит",
         "следующим образом: <br><img src='../images/magnetron.jpg'"
     ],
+    
+    [
+        "озвученная карта сайта",
+        "выглядит",
+        "следующим образом: <br><iframe  src='../flash/qw.html' frameborder='0' ></iframe> "
+    ],
+    
+    [
+        "анимационный ролик установки",
+        "выглядит",
+        "следующим образом: <br><iframe  src='../flash/%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F.html' frameborder='0' ></iframe>"
+    ],
 ];
 
 
@@ -788,8 +719,6 @@ function ask(questionInput){
 	newDiv.className='question';
 	newDiv.innerHTML=question;
 	document.getElementById("history").appendChild(newDiv);
-	//поиск и вывод ответа
-	//document.getElementById("history").innerHTML+="<div class='answer'>"+getAnswer(question)+"</div>";
 	//создаем блок <div>
 	newDiv=document.createElement("div");
 	//задаем класс оформления созданного блока
@@ -833,16 +762,26 @@ function ask(questionInput){
 	document.getElementById(questionInput).value="";
 }
 
+
+
 //псевдоокончания сказуемых (глаголов, кратких причастий и прилагательных )
-var endings = [ ["ет","(ет|ут|ют)"], ["ут","(ет|ут|ют)"], ["ют","(ет|ут|ют)"],																										//1 спряжение
+var endings = [    
+    ["ет","(ет|ут|ют)"], ["ут","(ет|ут|ют)"], ["ют","(ет|ут|ют)"],																										//1 спряжение
         			["ит","(ит|ат|ят)"], ["ат","(ит|ат|ят)"], ["ят","(ит|ат|ят)"],																											//2 спряжение
         			["ется","(ет|ут|ют)ся"], ["утся","(ет|ут|ют)ся"], ["ются","(ет|ут|ют)ся"],																					//1 спряжение, возвратные
         			["ится","(ит|ат|ят)ся"], ["атся","(ит|ат|ят)ся"], ["ятся","(ит|ат|ят)ся"],																					//2 спряжение, возвратные
         			["ен","ен"], ["ена","ена"], ["ено","ено"], ["ены","ены"],	["ан","ан"], ["ана","ана"], ["ано","ано"], ["аны","аны"], //краткие прилагательные
         			["жен","жен"], ["жна","жна"], ["жно","жно"], ["жны","жны"],																													//краткие прилагательные
-							["такое","- это"]];																																																	//для вопроса "что такое А?" ответ - "А - это ..."
+				["такое","- это"] //для вопроса "что такое А?" ответ - "А - это ..."
+];					
+
+
+
 //черный список слов, распознаваемых как сказуемые по ошибке
 var blacklist = [ "замена", "замены", "атрибут", "маршрут", "член", "нет" ];
+
+
+
 //функция определения сказуемых по соответствующим псевдоокончаниям
 function getEnding(word)
 {
@@ -859,17 +798,22 @@ function getEnding(word)
   return -1;  //если совпадений нет - возврат -1
 }
 
+
+
 //функция, которая делает первую букву маленькой
 function small1(str)
 {
   return str.substring(0, 1).toLowerCase() + str.substring(1);
 }
 
+
 //функция, которая делает первую букву большой
 function big1(str)
 {
   return str.substring(0, 1).toUpperCase() + str.substring(1);
 }
+
+
 
 //главная функция, обрабатывающая запросы клиентов
 function getAnswer(question)
@@ -959,23 +903,21 @@ function getAnswer(question)
 }
 
 
+
+//увелить картинку при клике
 function zoom(src) {
-document.getElementById("img_in_alert").src=src;
-$("#imgalert").css({"display":"block",
-"position": "fixed",
-"top": "100px",
-"left": "100px",
-"z-index": 5});
-$("#imgalert").addClass('alertHover');
-document.getElementById("img_in_alert").classList.add('alertHover');
-setTimeout(() => {
-$("#imgalert").css({"display":"none"});
-}, 4000);
+    document.getElementById("img_in_alert").src=src;
+    $("#imgalert").css({"display":"block",
+                        "position": "fixed",
+                        "top": "100px",
+                        "left": "100px",
+                        "z-index": 5});
+    $("#imgalert").addClass('alertHover');
+    document.getElementById("img_in_alert").classList.add('alertHover');
+    setTimeout(() => {
+                        $("#imgalert").css({"display":"none"});
+                    }, 4000);
 }
 
-function makeImageBigger() {
-console.log('here');
-$("#imgalert").css({"height":"500px",
-"position": "fixed",
-"top": "150px"});
-}
+
+
